@@ -7,18 +7,18 @@ q = [0.5;2.5;0];
 qd = [0;2;0];
 ez = [0;0;1];
 rz = 0;
-nr = 3; %3 to 5, number of range sensors
-nb = 1; %1 to 3, number of bearing sensors
+nr = 5; %3 to 5, number of range sensors
+nb = 3; %1 to 3, number of bearing sensors
 EM = 3; %1 - Mean, 2 - NL Least Squares, 3 -  Kalman Filter
-vcov = 10*[0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01]'; %Covariance of sensor noise
-avcov = 10*[0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01]'; %Assumed Covariance of sensor noise
-wcov = 10*[0.01 0.01]'; %Covariance of Input Noise
-awcov = 10*[0.01 0.01]'; %Assumed Covariance of Input Noise
+vcov = 1*[0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01]'; %Covariance of sensor noise
+avcov = 1*[0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01]'; %Assumed Covariance of sensor noise
+wcov = 1*[0.01 0.01]'; %Covariance of Input Noise
+awcov = 1*[0.01 0.01]'; %Assumed Covariance of Input Noise
 k1 = 5;
-NLN = 20;
+NLN = 60;
 k2 = 3; %Controller Variables
-P = eye(3);
-Sigma = eye(3);
+P = .01*eye(3);
+Sigma = .005*eye(3);
 
 % Range Sensors, from 3 to 5
 
@@ -240,7 +240,7 @@ Plist = [Plist P];
 Sigmalist = [Sigmalist Sigma];
 %% Update States
 q = q + [cos(q(3)) 0; sin(q(3)) 0;0 1]*utrue*step;
-qd = q + dqd*step;
+qd = qd + dqd*step;
 %% Close
 
 end

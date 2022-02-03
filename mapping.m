@@ -165,7 +165,7 @@ Plist = [Plist P];
 Sigmalist = [Sigmalist Sigma];
 %% Update States
 q = q + [cos(q(3)) 0; sin(q(3)) 0;0 1]*utrue*step;
-qd = q + dqd*step;
+qd = qd + dqd*step;
 %% Close
 
 end
