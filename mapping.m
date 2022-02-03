@@ -7,13 +7,13 @@ q = [5;7.5;0];
 qd = [5;8;0];
 ez = [0;0;1];
 rz = 0;
-nr = 3; %3 to 5, number of range sensors
-nb = 1; %1 to 3, number of bearing sensors
+nr = 5; %3 to 5, number of range sensors
+nb = 3; %1 to 3, number of bearing sensors
 EM = 3; %1 - Mean, 2 - NL Least Squares, 3 -  Kalman Filter
-vcov = 5*[0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01]'; %Covariance of sensor noise
-avcov = 5*[0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01]'; %Assumed Covariance of sensor noise
-wcov = 5*[0.01 0.01]'; %Covariance of Input Noise
-awcov = 5*[0.01 0.01]'; %Assumed Covariance of Input Noise
+vcov = 1*[0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01]'; %Covariance of sensor noise
+avcov = 1*[0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01]'; %Assumed Covariance of sensor noise
+wcov = 1*[0.01 0.01]'; %Covariance of Input Noise
+awcov = 1*[0.01 0.01]'; %Assumed Covariance of Input Noise
 mapcov = 0.01; %Covariance of Landmark
 amapcov = 0.01;
 NLN = 40;
@@ -70,16 +70,16 @@ tlist = [tlist t];
     %% Define Trajectory
  if t < 2.5
 
-    vd = 2;
-    wd = pi/10;
+    vd = 3;
+    wd = pi/5;
 
     dqd = [vd*cos(qd(3));
            vd*sin(qd(3));
          wd];
 %    dqd = [vd;wd];
  else
-     vd = .5;
-     wd = -pi/6;
+     vd = 2;
+     wd = -pi/2;
     dqd = [vd*cos(qd(3));
            vd*sin(qd(3));
          wd];
