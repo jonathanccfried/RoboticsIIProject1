@@ -3,8 +3,8 @@ clear
 %% Initialize Variables
 tfinal = 5;
 step = 0.01;
-q = [5;7.5;0]; 
-qd = [5;8;0];
+q = [0.5;2.5;0]; 
+qd = [0;2;0];
 ez = [0;0;1];
 rz = 0;
 nr = 5; %3 to 5, number of range sensors
